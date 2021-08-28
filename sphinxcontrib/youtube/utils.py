@@ -126,7 +126,7 @@ class Video(Directive):
             aspect = None
         width = get_size(self.options, "width")
         height = get_size(self.options, "height")
-        timestamp = get_size(self.options, "timestamp")
+        timestamp = self.options.get("timestamp", None)
         return [self._node(id=self.arguments[0], aspect=aspect, width=width, height=height, timestamp=timestamp)]
 
 
