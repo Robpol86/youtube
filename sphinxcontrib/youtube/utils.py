@@ -35,7 +35,10 @@ def visit_video_node(self, node, platform_url):
         aspect = 16, 9
 
     if timestamp is not None:
-        timestamp_url = f"?t={timestamp}"
+        if "vimeo" in platform_url:
+            timestamp_url = f"#t={timestamp}"
+        else:
+            timestamp_url = f"?t={timestamp}"
     else:
         timestamp_url = ""
 
